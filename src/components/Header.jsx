@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   const userWishlist = useSelector(state=>state.wishlistReducer)
-  console.log(userWishlist);
+  const userCart = useSelector(state=>state.cartReducer)
+  //console.log(userWishlist);
   
   return (
     <Navbar expand="lg" className="bg-primary position-fixed w-100 z-1">
@@ -20,7 +21,7 @@ function Header() {
             <Link to={'/wishlist'} className='text-decoration-none text-light fw-bold'><FontAwesomeIcon icon={faHeart} className='text-danger me-1'/>
             WISHLIST<Badge pill bg="dark" className='ms-1'>{userWishlist?.length}</Badge></Link>
             <Link to={'/cart'} className='text-decoration-none text-light fw-bold'><FontAwesomeIcon icon={faCartShopping} className='text-success me-1'/>
-            CART<Badge pill bg="dark" className='ms-1'>20</Badge></Link>
+            CART<Badge pill bg="dark" className='ms-1'>{userCart?.length}</Badge></Link>
             
             
           </Nav>
